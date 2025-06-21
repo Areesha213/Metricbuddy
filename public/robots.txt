@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://metricbuddy.online/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Specific pages
+Allow: /calculators/
+Allow: /about
+Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-of-service
