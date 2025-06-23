@@ -10,7 +10,7 @@ A collection of simple yet powerful calculators to help with everyday tasks – 
 - PWA Ready
 
 ## 🌐 Live Site
-Coming soon at [metricbuddy.online](https://metricbuddy.online)
+visit at [metricbuddy.online](https://metricbuddy.online)
 
 ## 📂 Calculators Included
 - Sleep Calculator
