@@ -54,10 +54,10 @@ export default function ContactPage() {
                     <div className="flex items-center space-x-2">
                       <Mail className="h-4 w-4" />
                       <a 
-                        href="mailto:hello@metricbuddy.online" 
+                        href="mailto:technicalassistance323@gmail.com" 
                         className="text-primary hover:underline"
                       >
-                        hello@metricbuddy.online
+                        technicalassistance323@gmail.com
                       </a>
                     </div>
                   </div>
@@ -83,10 +83,10 @@ export default function ContactPage() {
                     <div className="flex items-center space-x-2">
                       <Mail className="h-4 w-4" />
                       <a 
-                        href="mailto:bugs@metricbuddy.online" 
+                        href="mailto:technicalassistance323@gmail.com" 
                         className="text-primary hover:underline"
                       >
-                        bugs@metricbuddy.online
+                        technicalassistance323@gmail.com
                       </a>
                     </div>
                   </div>
@@ -112,10 +112,10 @@ export default function ContactPage() {
                     <div className="flex items-center space-x-2">
                       <Mail className="h-4 w-4" />
                       <a 
-                        href="mailto:features@metricbuddy.online" 
+                        href="mailto:technicalassistance323@gmail.com" 
                         className="text-primary hover:underline"
                       >
-                        features@metricbuddy.online
+                        technicalassistance323@gmail.com
                       </a>
                     </div>
                   </div>
@@ -141,10 +141,10 @@ export default function ContactPage() {
                     <div className="flex items-center space-x-2">
                       <Mail className="h-4 w-4" />
                       <a 
-                        href="mailto:business@metricbuddy.online" 
+                        href="mailto:technicalassistance323@gmail.com" 
                         className="text-primary hover:underline"
                       >
-                        business@metricbuddy.online
+                        technicalassistance323@gmail.com
                       </a>
                     </div>
                   </div>
