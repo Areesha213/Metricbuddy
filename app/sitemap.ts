@@ -1,9 +1,18 @@
 import { MetadataRoute } from 'next';
+import { bmiPages } from './calculators/bmi-calculator/bmi-keywords'
+
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://metricbuddy.online';
   const currentDate = new Date();
   
+ const bmiDynamicPages = bmiPages.map((page) => ({
+    url: `${baseUrl}/calculators/bmi-calculator/${page.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
   return [
     {
       url: baseUrl,
@@ -89,5 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.4,
     },
+
+     ...bmiDynamicPages
   ];
 }
