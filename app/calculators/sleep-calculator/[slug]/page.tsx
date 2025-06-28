@@ -1,38 +1,29 @@
-import { Metadata } from 'next';
-import SleepCalculatorClient from './sleep-calculator-client';
+import { sleepPages } from './sleep-keywords'
+import { notFound } from 'next/navigation'
+import SleepCalculator from '@/app/calculators/sleep-calculator/sleep-calculator-client'
 
-export const metadata: Metadata = {
-  title: 'Sleep Calculator - Optimize Your Sleep Cycles | MetricBuddy',
-  description: 'Calculate optimal sleep and wake times based on 90-minute sleep cycles. Wake up refreshed with our free sleep cycle calculator. Find the best bedtime and wake time.',
-  keywords: [
-    'sleep calculator', 'sleep cycle calculator', 'wake up time calculator',
-    'bedtime calculator', 'optimal sleep time', 'sleep cycles', 'REM sleep',
-    'sleep optimization', 'when to sleep', 'when to wake up', 'sleep schedule'
-  ],
-  openGraph: {
-    title: 'Sleep Calculator - Optimize Your Sleep Cycles',
-    description: 'Calculate optimal sleep and wake times based on 90-minute sleep cycles. Wake up refreshed with our free sleep cycle calculator.',
-    url: 'https://metricbuddy.online/calculators/sleep-calculator',
-    type: 'website',
-    images: [
-      {
-        url: '/og-sleep-calculator.png',
-        width: 1200,
-        height: 630,
-        alt: 'Sleep Calculator - MetricBuddy',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sleep Calculator - Optimize Your Sleep Cycles',
-    description: 'Calculate optimal sleep and wake times based on 90-minute sleep cycles.',
-  },
-  alternates: {
-    canonical: '/calculators/sleep-calculator',
-  },
-};
+export async function generateStaticParams() {
+  return sleepPages.map(p => ({ slug: p.slug }))
+}
 
-export default function SleepCalculatorPage() {
-  return <SleepCalculatorClient />;
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const page = sleepPages.find(p => p.slug === params.slug)
+  if (!page) return {}
+  return {
+    title: page.title,
+    description: page.description,
+  }
+}
+
+export default function SleepSlugPage({ params }: { params: { slug: string } }) {
+  const page = sleepPages.find(p => p.slug === params.slug)
+  if (!page) return notFound()
+
+  return (
+    <main className="max-w-2xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">{page.heading}</h1>
+      <p className="text-gray-600 mb-6">{page.description}</p>
+      <SleepCalculator />
+    </main>
+  )
 }
