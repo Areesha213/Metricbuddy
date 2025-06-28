@@ -1,29 +1,24 @@
-import { tipPages } from '../tip-keywords'
-import { notFound } from 'next/navigation'
-import TipCalculator from '@/app/calculators/tip-calculator/tip-calculator-client'
+import { Metadata } from 'next'
+import TipCalculator from './tip-calculator-client'
 
-export async function generateStaticParams() {
-  return tipPages.map(p => ({ slug: p.slug }))
+export const metadata: Metadata = {
+  title: 'Tip Calculator – Split Bills & Calculate Tips | MetricBuddy',
+  description: 'Calculate tips quickly and split bills with ease using this free Tip Calculator. Ideal for restaurants, delivery, and group outings.',
+  keywords: [
+    'tip calculator', 'restaurant tip calculator', 'split bill calculator', 'calculate tips',
+    '20% tip calculator', 'bill splitter', 'how much to tip', 'tip per person'
+  ],
+  alternates: {
+    canonical: '/calculators/tip-calculator',
+  },
+  openGraph: {
+    title: 'Tip Calculator – Split Bills & Calculate Tips',
+    description: 'Easily calculate tips and split bills using MetricBuddy’s free tip calculator.',
+    url: 'https://metricbuddy.online/calculators/tip-calculator',
+    type: 'website',
+  },
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const page = tipPages.find(p => p.slug === params.slug)
-  if (!page) return {}
-  return {
-    title: page.title,
-    description: page.description,
-  }
-}
-
-export default function TipSlugPage({ params }: { params: { slug: string } }) {
-  const page = tipPages.find(p => p.slug === params.slug)
-  if (!page) return notFound()
-
-  return (
-    <main className="max-w-2xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">{page.heading}</h1>
-      <p className="text-gray-600 mb-6">{page.description}</p>
-      <TipCalculator />
-    </main>
-  )
+export default function TipCalculatorPage() {
+  return <TipCalculator />
 }
