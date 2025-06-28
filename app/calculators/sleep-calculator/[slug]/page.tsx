@@ -1,4 +1,4 @@
-import { sleepPages } from './sleep-keywords'
+import { sleepPages } from '../sleep-keywords'
 import { notFound } from 'next/navigation'
 import SleepCalculator from '@/app/calculators/sleep-calculator/sleep-calculator-client'
 
