@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { bmiPages } from './calculators/bmi-calculator/bmi-keywords'
+import { sleepPages } from './calculators/sleep-calculator/sleep-keywords'
+
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
  const bmiDynamicPages = bmiPages.map((page) => ({
     url: `${baseUrl}/calculators/bmi-calculator/${page.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
+  const sleepDynamicPages = sleepPages.map((page) => ({
+    url: `${baseUrl}/calculators/sleep-calculator/${page.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.85,
@@ -99,6 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
 
-     ...bmiDynamicPages
+     ...bmiDynamicPages,
+    ...sleepDynamicPages
   ];
 }
