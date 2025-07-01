@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { bmiPages } from './calculators/bmi-calculator/bmi-keywords'
 import { sleepPages } from './calculators/sleep-calculator/sleep-keywords'
 import { tipPages } from './calculators/tip-calculator/tip-keywords'
+import { cookingPages } from './calculators/cooking-converter/cooking-keywords'
+
 
 
 
@@ -17,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
-  const sleepDynamicPages = sleepPages.map((page) => ({
+const sleepDynamicPages = sleepPages.map((page) => ({
     url: `${baseUrl}/calculators/sleep-calculator/${page.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
@@ -26,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const tipDynamicPages = tipPages.map((page) => ({
   url: `${baseUrl}/calculators/tip-calculator/${page.slug}`,
+  lastModified: currentDate,
+  changeFrequency: 'monthly' as const,
+  priority: 0.85,
+}))
+
+const cookingDynamicPages = cookingPages.map((page) => ({
+  url: `${baseUrl}/calculators/cooking-converter/${page.slug}`,
   lastModified: currentDate,
   changeFrequency: 'monthly' as const,
   priority: 0.85,
@@ -119,7 +128,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
      ...bmiDynamicPages,
     ...sleepDynamicPages,
-   ...tipDynamicPages
+    ...tipDynamicPages,
+    ...cookingDynamicPages
+
 
   ];
 }
