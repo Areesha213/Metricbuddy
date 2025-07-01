@@ -5,6 +5,7 @@ import { tipPages } from './calculators/tip-calculator/tip-keywords'
 import { cookingPages } from './calculators/cooking-converter/cooking-keywords'
 import { timezonePages } from './calculators/timezone-converter/timezone-keywords'
 import { caloriesPages } from './calculators/calories-calculator/calories-keywords'
+import { weightPages } from './calculators/weight-converter/weight-keywords'
 
 
 
@@ -52,6 +53,13 @@ const timezoneDynamicPages = timezonePages.map((page) => ({
 
 const caloriesDynamicPages = caloriesPages.map((page) => ({
   url: `${baseUrl}/calculators/calories-calculator/${page.slug}`,
+  lastModified: currentDate,
+  changeFrequency: 'monthly' as const,
+  priority: 0.85,
+}))
+
+const weightDynamicPages = weightPages.map((page) => ({
+  url: `${baseUrl}/calculators/weight-converter/${page.slug}`,
   lastModified: currentDate,
   changeFrequency: 'monthly' as const,
   priority: 0.85,
@@ -148,7 +156,9 @@ const caloriesDynamicPages = caloriesPages.map((page) => ({
     ...tipDynamicPages,
     ...cookingDynamicPages,
     ...timezoneDynamicPages,
-    ...caloriesDynamicPages
+    ...caloriesDynamicPages,
+    ...weightDynamicPages
+
 
 
 
