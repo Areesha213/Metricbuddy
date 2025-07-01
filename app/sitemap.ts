@@ -4,6 +4,7 @@ import { sleepPages } from './calculators/sleep-calculator/sleep-keywords'
 import { tipPages } from './calculators/tip-calculator/tip-keywords'
 import { cookingPages } from './calculators/cooking-converter/cooking-keywords'
 import { timezonePages } from './calculators/timezone-converter/timezone-keywords'
+import { caloriesPages } from './calculators/calories-calculator/calories-keywords'
 
 
 
@@ -44,6 +45,13 @@ const cookingDynamicPages = cookingPages.map((page) => ({
 
 const timezoneDynamicPages = timezonePages.map((page) => ({
   url: `${baseUrl}/calculators/timezone-converter/${page.slug}`,
+  lastModified: currentDate,
+  changeFrequency: 'monthly' as const,
+  priority: 0.85,
+}))
+
+const caloriesDynamicPages = caloriesPages.map((page) => ({
+  url: `${baseUrl}/calculators/calories-calculator/${page.slug}`,
   lastModified: currentDate,
   changeFrequency: 'monthly' as const,
   priority: 0.85,
@@ -139,7 +147,9 @@ const timezoneDynamicPages = timezonePages.map((page) => ({
     ...sleepDynamicPages,
     ...tipDynamicPages,
     ...cookingDynamicPages,
-    ...timezoneDynamicPages
+    ...timezoneDynamicPages,
+    ...caloriesDynamicPages
+
 
 
   ];
