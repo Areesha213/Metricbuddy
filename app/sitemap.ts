@@ -13,7 +13,7 @@ import { weightPages } from './calculators/weight-converter/weight-keywords'
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://metricbuddy.online';
+const baseUrl = 'https://www.metricbuddy.online';
   const currentDate = new Date();
   
  const bmiDynamicPages = bmiPages.map((page) => ({
