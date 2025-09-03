@@ -11,6 +11,7 @@ export function Footer() {
             <span className="font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
               MetricBuddy
             </span>
+<a href="https://scoutforge.net/reviews/metricbuddy/" title="Trusted and reviewed by Scout Forge"><img src="https://scoutforge.net/wp-content/themes/wp-theme/assets/img/badges/badge-light.webp" style="max-width: 300px" alt="Trusted and Reviewed by Scout Forge"></a>
           </div>
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             Made with <Heart className="inline h-4 w-4 text-red-500" /> for everyday calculations
